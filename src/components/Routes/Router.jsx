@@ -6,6 +6,7 @@ import Register from "../pages/register/Register";
 import Addbooks from "../pages/Addbooks/Addbooks";
 import Allbooks from "../pages/Allbooks/Allbooks";
 import BorrowedBooks from "../pages/Boorowedbooks/BorrowedBooks";
+import Books from "../pages/Books/Books";
 
 export const router = createBrowserRouter([
     {
@@ -35,6 +36,11 @@ export const router = createBrowserRouter([
             {
                 path:'/borrowedBooks',
                 element:<BorrowedBooks></BorrowedBooks>
+            },
+            {
+                path:'books/:category_name',
+                element:<Books></Books>,
+                loader:({params})=>fetch(`http://localhost:5000/books/${params.category_name}`)
             }
         ]
     }

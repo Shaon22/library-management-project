@@ -3,7 +3,7 @@ import Navbar from '../pages/Home/Navbar';
 
 const Mainlayout = () => {
     return (
-        <div className='w-[425px] lg:w-[1200px] mx-auto border'>
+        <div className='w-[425px] lg:w-[1200px] mx-auto '>
             <Navbar></Navbar>
             <Outlet></Outlet>
         </div>
