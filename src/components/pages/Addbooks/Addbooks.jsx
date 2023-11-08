@@ -30,14 +30,20 @@ const Addbooks = () => {
 
     return (
         <div>
-            <h1 className='text-5xl'>addbooks</h1>
-            <form onSubmit={handleAddBooks} className="grid grid-cols-2">
-                <input type="text" name="imageURL" placeholder="Image URL" id="" />
-                <input type="text" name="name" placeholder="Name" id="" />
-                <input type="number" name="quantity" placeholder="quantity" id="" />
-                <input type="text" name="author" placeholder="Author" id="" />
-                <input type="text" name="ratings" placeholder="Ratings" id="" />
-               <select name="category" placeholder="Select category" id="">
+            <h1 className='text-3xl font-bold text-center my-5'>Add Books</h1>
+            <form onSubmit={handleAddBooks} className="grid gap-5 grid-cols-2">
+                
+                <input className="block w-[100%] outline-none border-b-2 border-b-cyan-400 rounded p-2 hover:border-2 border-cyan-400 px-5 " type="text" name="imageURL" placeholder="Image URL" id="" />
+                
+                <input className="block w-[100%] outline-none border-b-2 border-b-cyan-400 rounded p-2 hover:border-2 border-cyan-400 px-5 "  type="text" name="name" placeholder="Name" id="" />
+               
+                <input className="block w-[100%] outline-none border-b-2 border-b-cyan-400 rounded p-2 hover:border-2 border-cyan-400 px-5 "  type="text" name="author" placeholder="Author" id="" />
+                
+                <input className="block w-[100%] outline-none border-b-2 border-b-cyan-400 rounded p-2 hover:border-2 border-cyan-400 px-5 "  type="text" name="ratings" placeholder="Ratings" id="" />
+                
+                <input className="block w-[100%] outline-none border-b-2 border-b-cyan-400 rounded p-2 hover:border-2 border-cyan-400 px-5 "  type="number" name="quantity" placeholder="Quantity" id="" />
+               
+               <select className="block w-[100%] outline-none border-b-2 border-b-cyan-400 rounded p-2 hover:border-2 border-cyan-400 px-5 "  name="category" placeholder="Select Category" id="">
                 <option value="">Select category</option>
                 <option value="Science and Technology">Science and Technology</option>
                 <option value="Business">Business</option>
@@ -46,8 +52,9 @@ const Addbooks = () => {
                 <option value="Kids">Kids</option>
                 <option value="History">History</option>
                </select>
-                <textarea className="col-span-2" name="shortDescription" id="" placeholder="shortDescription" cols="30" rows="10"></textarea>
-                <button className="btn">Add book</button>
+                
+                <textarea className="block w-[100%] outline-none border-b-2 border-b-cyan-400 rounded p-2 hover:border-2 border-cyan-400 px-5 col-span-2"  name="shortDescription" id="" placeholder="Short Description" cols="30" rows="10"></textarea>
+                <button className="btn btn-wide col-span-2 bg-cyan-400 mx-auto">Add book</button>
             </form>
         </div>
     );

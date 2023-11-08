@@ -1,11 +1,14 @@
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import icon from '../../../assets/Welcome-to-scribie-512x391.svg'
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { myContext } from "../../Authentication/Authprovider";
+import { updateProfile } from "firebase/auth";
 
 
 const Register = () => {
     const {signUp}=useContext(myContext)
+    const [registerError, setRegisterError] = useState('')
+    const navigate = useNavigate()
     const handleSignUp=(event)=>{
         event.preventDefault()
         const form=event.target
@@ -14,10 +17,29 @@ const Register = () => {
         const email=form.email.value
         const password=form.password.value
         console.log(name,photoURL,email,password)
+        setRegisterError('')
+        if(password.length<6){
+            setRegisterError('Password must be 6 character or more...')
+            return;
+        }
+        else if(!/[A-Z]/.test(password)){
+            setRegisterError('Please provide at least one uppercase character in your password')
+            return;
+        }
+        else if(!/[!@#$%^&*]/.test(password)){
+            setRegisterError('Please provide at least one special character in your password')
+            return;
+        }
 
         signUp(email,password)
         .then(res=>{
             console.log(res)
+            updateProfile(res.user,{
+                displayName:name,
+                photoURL:photoURL
+            })
+            console.log(res.user)
+            navigate('/')
         })
         .catch(error=>{
             console.error(error)
@@ -38,8 +60,12 @@ const Register = () => {
                     <input className="block w-[100%] outline-none border-b-2 border-b-cyan-400 rounded hover:border-2 border-cyan-400 px-5 py-2" type="email" name="email" placeholder="EMAIL" id="" required/>
                     <input className="block w-[100%] outline-none border-b-2 border-b-cyan-400 rounded hover:border-2 border-cyan-400 px-5 py-2" type="password" name="password" placeholder="PASSWORD" id="" required />
                     <input className="btn-sm rounded mx-auto block bg-cyan-400 text-white" type="submit" value="REGISTER" />
-                    <h1 className="font-medium text-center">Already have an account ? <Link className="text-cyan-400 font-bold" to={'/login'}>LOG IN</Link> </h1>
+                    
                 </form>
+                <h1 className="font-medium text-center">Already have an account ? <Link className="text-cyan-400 font-bold" to={'/login'}>LOG IN</Link> </h1>
+                {
+                    registerError && <p className="text-center mt-2 text-red-500">{registerError}</p>
+                }
              </div>
              
         </div>
