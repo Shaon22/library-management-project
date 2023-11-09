@@ -5,16 +5,18 @@ import Login from "../pages/Login/Login";
 import Register from "../pages/register/Register";
 import Addbooks from "../pages/Addbooks/Addbooks";
 import Allbooks from "../pages/Allbooks/Allbooks";
-import BorrowedBooks from "../pages/Boorowedbooks/BorrowedBooks";
+import BorrowedBooks from "../pages/Borrowedbooks/BorrowedBooks";
 import Books from "../pages/Books/Books";
 import Details from "../pages/BooksDetails/Details";
 import Private from "../PrivateRoute/Private";
 import UpdateBooks from "../pages/UpdateBooks/UpdateBooks";
+import Error from "../Error/Error";
 
 export const router = createBrowserRouter([
     {
         path: '/',
         element: <Mainlayout></Mainlayout>,
+        errorElement:<Error></Error>,
         children: [
             {
                 path: '/',
@@ -39,7 +41,8 @@ export const router = createBrowserRouter([
             },
             {
                 path:'/borrowedBooks',
-                element:<Private><BorrowedBooks></BorrowedBooks></Private>
+                element:<Private><BorrowedBooks></BorrowedBooks></Private>,
+                
             },
             {
                 path:'books/:category_name',
@@ -53,7 +56,8 @@ export const router = createBrowserRouter([
             },
             {
                 path:'/updateBooks/:id',
-                element:<UpdateBooks></UpdateBooks>
+                element:<UpdateBooks></UpdateBooks>,
+                loader:({params})=>fetch(`http://localhost:5000/allBooks/${params.id}`)
             }
         ]
     }

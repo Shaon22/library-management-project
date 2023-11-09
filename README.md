@@ -1,8 +1,12 @@
-# React + Vite
+The Atheneum.This is a online library management website.
+website link:
+Key Features:
+*Email paasword based authentication system
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+*user can choose books by category
 
-Currently, two official plugins are available:
+*user can borrow a book and see his/her borrowed books 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+*User also can return his borrowed books
+
+*User can also Read books in this site

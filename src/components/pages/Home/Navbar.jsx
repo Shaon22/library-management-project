@@ -39,7 +39,7 @@ const Navbar = () => {
       </ul>
     </div>
     <img className="w-[20%]" src={book} alt="" />
-    <a className="btn btn-ghost normal-case text-xl">Library</a>
+    <a className="btn btn-ghost normal-case text-xl font-extrabold">THE <span className="text-orange-600">ATHENEUM</span></a>
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1">
@@ -52,6 +52,8 @@ const Navbar = () => {
   {
     user?
     <>
+    <h1 className=" mr-5">{user.displayName}</h1>
+                            <img className="w-6 h-6 text-center rounded-full mr-4" src={user.photoURL} alt="" />
     <Link to={'/'}><button onClick={handleLogOut} className="btn rounded btn-sm border-none bg-red-500 text-white" >log Out <FiLogOut></FiLogOut></button></Link>
     </>
     :
