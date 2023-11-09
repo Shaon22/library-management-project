@@ -37,7 +37,7 @@ export const router = createBrowserRouter([
             {
                 path:'/allBooks',
                 element:<Private><Allbooks></Allbooks></Private>,
-                loader:()=>fetch('http://localhost:5000/allBooks')
+                loader:()=>fetch(' https://library-management-server-psi.vercel.app/allBooks')
             },
             {
                 path:'/borrowedBooks',
@@ -47,17 +47,18 @@ export const router = createBrowserRouter([
             {
                 path:'books/:category_name',
                 element:<Books></Books>,
-                loader:({params})=>fetch(`http://localhost:5000/books/${params.category_name}`)
+                loader:({params})=>fetch(` https://library-management-server-psi.vercel.app/books/${params.category_name}`)
             },
             {
                 path:'/booksDetails/:_id',
                 element:<Private><Details></Details></Private>,
-                loader:({params})=> fetch(`http://localhost:5000/booksDetails/${params._id}`)
+                loader:({params})=> fetch(` https://library-management-server-psi.vercel.app/booksDetails/${params._id}`)
             },
             {
                 path:'/updateBooks/:id',
                 element:<UpdateBooks></UpdateBooks>,
-                loader:({params})=>fetch(`http://localhost:5000/allBooks/${params.id}`)
+                loader:({params})=>fetch(` https://library-management-server-psi.vercel.app
+/allBooks/${params.id}`)
             }
         ]
     }

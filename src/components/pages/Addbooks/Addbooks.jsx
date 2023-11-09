@@ -15,7 +15,7 @@ const Addbooks = () => {
             name,imageURL,author,shortDescription,ratings,category
         }
         console.log(booksInfo)
-        fetch('http://localhost:5000/books',{
+        fetch('https://library-management-server-psi.vercel.app/books',{
             method:'POST',
             headers:{
                 'content-type':'application/json'

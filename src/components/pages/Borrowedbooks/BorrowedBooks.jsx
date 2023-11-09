@@ -8,13 +8,13 @@ const BorrowedBooks = () => {
 
     const [borrowedBooksInfos, setBorrowedBooksInfos] = useState()
     useEffect(() => {
-        fetch(`http://localhost:5000/borrowedBooks/${user.email}`)
+        fetch(` https://library-management-server-psi.vercel.app/borrowedBooks/${user.email}`)
             .then(res => res.json())
             .then(data => setBorrowedBooksInfos(data))
     }, [])
 
     const handleDelete=_id=>{
-        fetch(`http://localhost:5000/deleteBooks/${_id}`,{
+        fetch(` https://library-management-server-psi.vercel.app/deleteBooks/${_id}`,{
             method:'DELETE'
         })
         .then(res => res.json())

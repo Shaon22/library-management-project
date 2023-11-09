@@ -18,7 +18,7 @@ const UpdateBooks = () => {
         }
         console.log(upadatedInfo)
 
-        fetch(`http://localhost:5000/allBooks/${addedBooksInfo._id}`,{
+        fetch(`https://library-management-server-psi.vercel.app/allBooks/${addedBooksInfo._id}`,{
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
